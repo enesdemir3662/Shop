@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Market</title>
+  <!-- meta -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <!--GOOGLE FONT -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- import css -->
+  <link rel="stylesheet" href="index.css">
+
+</head>
+
+
+<body scroll="no">
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 99999;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Market</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" style="cursor: pointer;" onclick="page('home')">Ev</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Ürünler
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" onclick="page('computer')">Bilgisayar</a></li>
+              <li><a class="dropdown-item" onclick="page('television')">Televizyon</a></li>
+              <li><a class="dropdown-item" onclick="page('phone')">Telefon</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" onclick="page('all')">Tümü</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form>
+          <button class="btn btn-outline-green ms-5" type="button" style="background-color: green;"
+            onclick="modal('new',0)">
+            <i class="material-icons d-flex justify-content-center" style="color: aliceblue;">add_box </i>
+          </button>
+        </form>
+        <form class="d-flex ms-5">
+          <input class="form-control me-2" type="text" placeholder="Ara..." aria-label="Search" id="search-textbox">
+          <button class="btn btn-outline-blue" type="button" style="background-color: lightblue;"
+            onclick="page('search')">Ara</button>
+        </form>
+        <form>
+          <button class="btn btn-outline-green ms-5" type="button" style="background-color: green;"
+            onclick="basketTrueFalse()">
+            <i class="material-icons d-flex justify-content-center" style="color: aliceblue;">shopping_cart <span
+                class="badge bg-light text-dark ms-1 rounded-pill ms-2" id="basket-count">0</span></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+  <div class="container">
+    <div class="row">
+      <div class="" id="home-view">
+        <div class="bd-example">
+          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class=""
+                aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"
+                class=""></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"
+                class="active" aria-current="true"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item" data-bs-interval="10000">
+                <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#f5f5f5"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">First slide</text></svg> -->
+                <img src="img/slider_pc.jpg"
+                  class="d-block w-100 scroll-img bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                  height="400" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Bilgisayar Ürünlerinde Geçerli İndirim</h5>
+                  <p>Detaylar için Tıklayın</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#bbb" dy=".3em">Second slide</text></svg> -->
+                <img src="img/slider_tv.jpg"
+                  class="d-block w-100 scroll-img bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                  height="400" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Televizyon Ürünlerinde Geçerli İndirim</h5>
+                  <p>Detaylar için Tıklayın</p>
+                </div>
+              </div>
+              <div class="carousel-item active">
+                <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e5e5e5"></rect><text x="50%" y="50%" fill="#999" dy=".3em">Third slide</text></svg> -->
+                <img src="img/slider_phone.jpg"
+                  class="d-block w-100 scroll-img bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                  height="400" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Telefon Ürünlerinde Geçerli İndirim</h5>
+                  <p>Detaylar için Tıklayın</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container row col-12">
+    <div class="" id="shop-dynamic">
+      <!-- Products List -->
+    </div>
+    <div class="d-none col" id="product-basket">
+      <br>
+      <!-- Basket -->
+      <h5>Sepet</h5>
+      <table class="table table-borderless">
+        <tr>
+          <thead>
+            <th>Ürün</th>
+            <th>Adet</th>
+            <th>Toplam</th>
+            <tr>
+              <thead id="mytable">
+              </thead>
+            </tr>
+          </thead>
+        </tr>
+      </table>
+      <p>Toplam Tutar : <span id="total-price">0TL</span></p>
+      <div class="container-fluid">
+        <form class="d-flex">
+          <button type="button" class="btn btn-primary" id="produsts-buy" onclick="buy()"> Satın Al </button>
+          <button type="button" class="btn btn-danger ms-5" id="produsts-buy" onclick="buy()"> Sıfırla </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Modal Start -->
+  <div class="modal fade" id="exampleModal" style="z-index: 999999;" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Yeni Ürün</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Ürün Adı:</label>
+              <input type="text" class="form-control" id="textbox-name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Ürün Bilgisi:</label>
+              <input type="text" class="form-control" id="textbox-info">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Ürün Fiyatı:</label>
+              <input type="number" class="form-control" id="textbox-price">
+            </div>
+        </div>
+        <div class="mb-3 d-flex justify-content-center">
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="width: 90%;"
+            id="textbox-category">
+            <option selected value="0">Kategori Seçin</option>
+            <option value="pc">Bilgisayar</option>
+            <option value="tv">Televizyon</option>
+            <option value="tel">Telefon</option>
+          </select>
+        </div>
+        <div class="input-group mb-3 mt-1" style="width: 90%; align-self: center;">
+          <input type="file" class="form-control" style="padding-top: 12px;" accept="image/*" id="imgInp">
+          <img id="imgOut" src="" style="height: 50px; width: 50px;" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger d-none" data-bs-dismiss="modal" onclick="product_remove()"
+            id="product-delete">Ürünü Sil</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+          <button type="button" class="btn btn-primary" id="save-button" data-bs-dismiss="modal"
+            onclick="saveButton(this,0)">Kaydet</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+  </div>
+  <!-- Modal End -->
+
+  <script src="index.js" defer></script>
+</body>
+
+</html>
